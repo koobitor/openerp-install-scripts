@@ -23,7 +23,7 @@ OE_HOME="/opt/$OE_USER"
 OE_HOME_EXT="/opt/$OE_USER/$OE_USER-server"
 
 #Enter version for checkout "9.0" for version 9.0,"8.0" for version 8.0, "7.0 (version 7), "master" for trunk
-OE_VERSION="9.0"
+OE_VERSION="10.0"
 
 #set the superadmin password
 OE_SUPERADMIN="superadminpassword"
@@ -48,16 +48,16 @@ sudo /usr/sbin/update-locale LANG=C.UTF-8
 echo -e "\n---- Set locales ----"
 echo 'LC_ALL=C.UTF-8' >> /etc/environment
 
-echo -e "\n---- Install PostgreSQL Server ----"
-sudo apt-get install postgresql -y
+# echo -e "\n---- Install PostgreSQL Server ----"
+# sudo apt-get install postgresql -y
 
-echo -e "\n---- PostgreSQL $PG_VERSION Settings  ----"
-sudo sed -i s/"#listen_addresses = 'localhost'"/"listen_addresses = '*'"/g /etc/postgresql/9.4/main/postgresql.conf
+# echo -e "\n---- PostgreSQL $PG_VERSION Settings  ----"
+# sudo sed -i s/"#listen_addresses = 'localhost'"/"listen_addresses = '*'"/g /etc/postgresql/9.4/main/postgresql.conf
 
-echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
-sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
+# echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
+# sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
 
-sudo systemctl restart postgresql.service
+# sudo systemctl restart postgresql.service
 #--------------------------------------------------
 # System Settings
 #--------------------------------------------------
